@@ -51,20 +51,32 @@ st.markdown(
         border: none !important;
     }
 
+    footer {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        margin-top: 2rem;
+    }
+
+    hr {
+        border-color: rgba(255, 255, 255, 0.3);
+    }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
+# Footer content
+footer_text = """
+        Developed by Sparky, Connect with him @ 
+        <a href="https://linktr.ee/nitin.sagar.b" target="_blank"><button>here</button></a>
+            """
+
 # Streamlit app
 def main():
     st.title("Visual Image Lab 🖌️")
     st.header("Upload an image and apply various artistic effects to it!")
-    
-    # Display footer
-    st.markdown("---")
-    st.markdown(footer_text, unsafe_allow_html=True)
-    
+
     # File uploader
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
     
@@ -137,6 +149,10 @@ def main():
         st.write("")
         st.write("Download the processed image:")
         st.download_button(label="Download Image", data=byte_im, file_name="processed_image.png", mime="image/png")
-   
+        
+   # Display footer
+    st.markdown("---")
+    st.markdown(footer_text, unsafe_allow_html=True)     
+    
 if __name__ == '__main__':
     main()
