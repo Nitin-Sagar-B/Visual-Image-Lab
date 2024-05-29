@@ -57,39 +57,29 @@ st.markdown(
         font-size: 14px;
         margin-top: 2rem;
     }
+
+    hr {
+        border-color: rgba(255, 255, 255, 0.3);
+    }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-# Function to convert image to greyscale
-def convert_to_greyscale(image):
-    return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-# Function to enhance image quality (simple enhancement)
-def enhance_image(image):
-    enhancer = ImageEnhance.Sharpness(image)
-    return enhancer.enhance(2.0)  # Adjust enhancement level
-
-# Function to adjust brightness
-def adjust_brightness(image, factor):
-    enhancer = ImageEnhance.Brightness(image)
-    return enhancer.enhance(factor)
-
-# Function to improve resolution (using simple resizing)
-def improve_resolution(image, scale_factor):
-    width, height = image.size
-    new_size = (int(width * scale_factor), int(height * scale_factor))
-    return image.resize(new_size, Image.ANTIALIAS)
-
-# Function to convert image to HD resolution
-def convert_to_hd(image):
-    return image.resize((1280, 720), Image.ANTIALIAS)
+# Footer content
+footer_text = """
+            Developed by Sparky, Connect with him @ 
+            <a href="https://linktr.ee/nitin.sagar.b" target="_blank"><button>Connect</button></a>
+            """
 
 # Streamlit app
 def main():
     st.title("Visual Image Lab 🖌️")
     st.markdown("Upload an image and apply various artistic effects to it!")
+    
+    # Display footer
+    st.markdown("---")
+    st.markdown(footer_text, unsafe_allow_html=True)
     
     # File uploader
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
@@ -163,17 +153,6 @@ def main():
         st.write("")
         st.write("Download the processed image:")
         st.download_button(label="Download Image", data=byte_im, file_name="processed_image.png", mime="image/png")
-
-        # Footer
-        st.write(
-            """
-            <footer>
-                Developed by Sparky, Connect with him @ 
-                <a href="https://linktr.ee/nitin.sagar.b" target="_blank"><button>Connect</button></a>
-            </footer>
-            """,
-            unsafe_allow_html=True,
-        )
 
 if __name__ == '__main__':
     main()
