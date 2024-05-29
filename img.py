@@ -72,6 +72,30 @@ footer_text = """
         <a href="https://linktr.ee/nitin.sagar.b" target="_blank"><button>here</button></a>
             """
 
+# Function to convert image to greyscale
+def convert_to_greyscale(image):
+    return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+# Function to enhance image quality (simple enhancement)
+def enhance_image(image):
+    enhancer = ImageEnhance.Sharpness(image)
+    return enhancer.enhance(2.0)  # Adjust enhancement level
+
+# Function to adjust brightness
+def adjust_brightness(image, factor):
+    enhancer = ImageEnhance.Brightness(image)
+    return enhancer.enhance(factor)
+
+# Function to improve resolution (using simple resizing)
+def improve_resolution(image, scale_factor):
+    width, height = image.size
+    new_size = (int(width * scale_factor), int(height * scale_factor))
+    return image.resize(new_size, Image.ANTIALIAS)
+
+# Function to convert image to HD resolution
+def convert_to_hd(image):
+    return image.resize((1280, 720), Image.ANTIALIAS)
+
 # Streamlit app
 def main():
     st.title("Visual Image Lab 🖌️")
