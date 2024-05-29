@@ -50,6 +50,13 @@ st.markdown(
         color: white !important;
         border: none !important;
     }
+
+    footer {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        margin-top: 2rem;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -156,6 +163,17 @@ def main():
         st.write("")
         st.write("Download the processed image:")
         st.download_button(label="Download Image", data=byte_im, file_name="processed_image.png", mime="image/png")
+
+        # Footer
+        st.write(
+            """
+            <footer>
+                Developed by Sparky, Connect with him @ 
+                <a href="https://linktr.ee/nitin.sagar.b" target="_blank"><button>Connect</button></a>
+            </footer>
+            """,
+            unsafe_allow_html=True,
+        )
 
 if __name__ == '__main__':
     main()
