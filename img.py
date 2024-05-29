@@ -66,16 +66,10 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Footer content
-footer_text = """
-            Developed by Sparky, Connect with him @ 
-            <a href="https://linktr.ee/nitin.sagar.b" target="_blank"><button>Connect</button></a>
-            """
-
 # Streamlit app
 def main():
     st.title("Visual Image Lab 🖌️")
-    st.markdown("Upload an image and apply various artistic effects to it!")
+    st.header("Upload an image and apply various artistic effects to it!")
     
     # Display footer
     st.markdown("---")
@@ -153,6 +147,10 @@ def main():
         st.write("")
         st.write("Download the processed image:")
         st.download_button(label="Download Image", data=byte_im, file_name="processed_image.png", mime="image/png")
-
+    # Footer content
+    footer_text = """
+        Developed by Sparky, Connect with him @ 
+        <a href="https://linktr.ee/nitin.sagar.b" target="_blank"><button>here</button></a>
+            """
 if __name__ == '__main__':
     main()
